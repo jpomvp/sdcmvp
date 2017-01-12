@@ -9,14 +9,13 @@ const criteria = {
     env: process.env.NODE_ENV
 };
 
-
 const config = {
     $meta: 'This file configures the plot device.',
-    projectName: 'Aqua',
+    projectName: 'ITS JPO Secure Data Commons',
     port: {
         web: {
             $filter: 'env',
-            test: 9000,
+            test: 8000,
             production: process.env.PORT,
             $default: 8000
         }
@@ -24,7 +23,7 @@ const config = {
     baseUrl: {
         $filter: 'env',
         $meta: 'values should not end in "/"',
-        production: 'https://getaqua.herokuapp.com',
+        production: 'https://jpo-sdc.dot.gov',
         $default: 'http://127.0.0.1:8000'
     },
     authAttempts: {
@@ -41,7 +40,7 @@ const config = {
             uri: {
                 $filter: 'env',
                 production: process.env.MONGODB_URI,
-                test: 'mongodb://localhost:27017/aqua-test',
+                test: process.env.MONGODB_URI,
                 $default: 'mongodb://localhost:27017/aqua'
             }
         },
@@ -52,18 +51,18 @@ const config = {
         port: 465,
         secure: true,
         auth: {
-            user: 'jedireza@gmail.com',
+            user: 'test@testing.com',
             pass: process.env.SMTP_PASSWORD
         }
     },
     system: {
         fromAddress: {
             name: 'Aqua',
-            address: 'jedireza@gmail.com'
+            address: 'sdc-mvp@dot.gov'
         },
         toAddress: {
             name: 'Aqua',
-            address: 'jedireza@gmail.com'
+            address: 'sdc-mvp@dot.gov'
         }
     }
 };

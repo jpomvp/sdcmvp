@@ -44,7 +44,9 @@
     "redux": "3.x.x",
     "slug": "0.9.x",
     "vision": "4.x.x",
-    "visionary": "6.x.x"
+    "visionary": "6.x.x",
+    "docker-remote-api" : "4.x.x",
+    "fs-extra" : "2.x.x"
   },
   "devDependencies": {
     "babel-core": "6.x.x",

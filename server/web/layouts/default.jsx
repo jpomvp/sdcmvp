@@ -37,10 +37,12 @@ class DefaultLayout extends React.Component {
                     <div className="footer">
                         <div className="container">
                             <span className="copyright pull-right">
-                                &copy; {year} Acme, Inc.
+                                &copy; {year} Federal Department Of Transportation.
                             </span>
                             <ul className="links">
                                 <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/signup">Sign Up</a></li>
                                 <li><a href="/contact">Contact</a></li>
                             </ul>
                             <div className="clearfix"></div>

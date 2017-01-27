@@ -15,7 +15,7 @@ class AboutPage extends React.Component {
                     <div className="col-sm-12">
                         <a href="/signup">
                             <img src="/public/media/about-header.svg"
-
+                                height={585}
                             />
                         </a>
                     </div>

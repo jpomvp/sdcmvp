@@ -17,11 +17,12 @@ class SignupPage extends React.Component {
                 <div className="row">
                     <div className="col-sm-6" id="app-mount"></div>
                     <div className="col-sm-6 text-center">
-                        <h1 className="page-header">Campy benefits</h1>
+                        <h1 className="page-header">MEET SDC</h1>
                         <p className="lead">
-                            Really, you will love it inside. It's super great!
+                            Data analytics at its best using the tools you love.
                         </p>
-                        <i className="fa fa-thumbs-o-up bamf"></i>
+                        <img src="/public/media/signup-screenshot.svg"
+                        />
                     </div>
                 </div>
             </Layout>

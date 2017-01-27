@@ -10,14 +10,35 @@ class HomePage extends React.Component {
 
         return (
             <Layout
-                title="Aqua"
+                title="Intelligent Transportation Systems Joint Program Office - Secure Data Commons"
                 neck={neck}
                 activeTab="home">
-
+                <div className="row">
+                    <div className="col-sm-6">
+                        <a href="/about">
+                            <img src="/public/media/left-block.svg"
+                                 width={587}
+                                height={571}
+                            />
+                        </a>
+                    </div>
+                    <div className="col-sm-6">
+                        <a href="/about">
+                            <img src="/public/media/right-block1.svg"
+                                width={571}
+                                height={286}
+                            />
+                        </a>
+                        <a href="/about">
+                            <img src="/public/media/right-block2.svg"
+                                width={571}
+                                height={286}
+                            />
+                        </a>
+                    </div>
+                </div>
                 <div className="jumbotron">
-                    <h1>Success</h1>
                     <div>
-                        <p className="lead">Your Node.js website and user system is running.</p>
                         <div>
                             <a className="btn btn-primary btn-lg" href="/signup">
                                 Create an account
@@ -33,12 +54,12 @@ class HomePage extends React.Component {
                     <div className="col-sm-4">
                         <div className="panel panel-default">
                             <div className="panel-body">
-                                <h3>About us</h3>
+                                <h3>About SDC</h3>
                                 <p>
-                                    At vero eos et accusamus et iusto odio
-                                    dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque
-                                    corrupti.
+                                    The Secure Data Commons is a online portal where you can perform
+                                    data analysis on transportation-related data sets.
+                                    <br />
+                                    &nbsp;
                                 </p>
                                 <a href="/about" className="btn btn-default btn-block">
                                     Learn more
@@ -51,10 +72,9 @@ class HomePage extends React.Component {
                             <div className="panel-body">
                                 <h3>Sign up</h3>
                                 <p>
-                                    At vero eos et accusamus et iusto odio
-                                    dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque
-                                    corrupti.
+                                    What to get started? Complete our online access request form and
+                                    when you are approved you can begin creating your very own data analysis
+                                    environments!
                                 </p>
                                 <a href="/signup" className="btn btn-default btn-block">
                                     Learn more
@@ -67,10 +87,8 @@ class HomePage extends React.Component {
                             <div className="panel-body">
                                 <h3>Contact us</h3>
                                 <p>
-                                    At vero eos et accusamus et iusto odio
-                                    dignissimos ducimus qui blanditiis
-                                    praesentium voluptatum deleniti atque
-                                    corrupti.
+                                    Questions? Comments? We would love to hear from you! We are always striving to
+                                    improve our system so don't hesitate to let us know what you think!
                                 </p>
                                 <a href="/contact" className="btn btn-default btn-block">
                                     Learn more

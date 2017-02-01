@@ -44,6 +44,7 @@ class DefaultLayout extends React.Component {
                                 <li><a href="/about">About</a></li>
                                 <li><a href="/signup">Sign Up</a></li>
                                 <li><a href="/contact">Contact</a></li>
+                                <li><a href="/login">Sign In</a></li>
                             </ul>
                             <div className="clearfix"></div>
                         </div>

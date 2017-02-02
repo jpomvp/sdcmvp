@@ -9,19 +9,19 @@ var request = docker({ host: process.env.DOCKER_HOST || 'http://192.168.99.100:2
 var url = process.env.MONGODB_URI || "mongodb://192.168.99.100:32768/aqua";
 
 module.exports = {
-    createContainer: function (imageName, userId) {
+    createContainer: function (imageName, userId, callback) {
 
         var body = { "Image": imageName }
         // Create the container
         request.post('/v1.25/containers/create', { 'json': body }, function (err, data) {
-            if (err) throw err;
+            if (err) {
+                callback(err, null);
+                return;
+            }
             console.log("Created container: ", data);
 
             // Start the container
-            request.post('/v1.25/containers/' + data.Id + "/start", {'json': {}}, function (err, data) {
-                if (err) throw err;
-                console.log("Started container ", data);
-            });
+            request.post('/v1.25/containers/' + data.Id + "/start", {'json': {}}, callback);
 
             // Save the container and associated user to the db
             MongoClient.connect(url, function (err, db) {
@@ -59,10 +59,14 @@ module.exports = {
          });
     },
 
-    removeContainer : function(containerId) {
+    removeContainer : function(containerId, callback) {
         request.delete("/v1.25/containers/" + containerId + "?force=true", [], function(err, result) {
-            if (err) throw err;
+            if (err) {
+                callback(err, null);
+                return;
+            }
             console.log("Removed container " + containerId, result);
+            callback(null, result);
             // Remove the container from the db
             MongoClient.connect(url, function (err, db) {
                 assert.equal(null, err);
@@ -80,12 +84,6 @@ module.exports = {
 var insertContainer = function (db, document, callback) {
     var collection = db.collection(collectionName);
     collection.insertOne(document, callback);
-}
-
-// Get all containers associated with the specified user
-var fetchUserContainers = function(db, user, callback) {
-    var collection = db.collection(collectionName);
-    collection.find({'user' : user}).toArray(callback);
 }
 
 var fetchContainers = function(db, query, callback) {

@@ -1,107 +1,96 @@
 'use strict';
-const Moment = require('moment');
 const React = require('react');
+const ReactRouter = require('react-router');
 
-
+const Link = ReactRouter.Link;
 class HomePage extends React.Component {
+
     constructor(props) {
 
         super(props);
 
-        this.state = this.getThisMoment();
     }
 
-    componentDidMount() {
+    onEditClick() {
 
-        this.interval = setInterval(this.refreshTime.bind(this), 1000);
-    }
+        // Open edit instance page
 
-    componentWillUnmount() {
-
-        clearInterval(this.interval);
-    }
-
-    refreshTime() {
-
-        this.setState(this.getThisMoment());
-    }
-
-    getThisMoment() {
-
-        const thisMoment = Moment();
-
-        return {
-            second: thisMoment.format('ss'),
-            minute: thisMoment.format('mm'),
-            hour: thisMoment.format('HH'),
-            day: thisMoment.format('DD'),
-            month: thisMoment.format('MM'),
-            year: thisMoment.format('YYYY')
-        };
     }
 
     render() {
 
         return (
+
             <section className="section-home container">
                 <div className="row">
                     <div className="col-sm-7">
-                        <h1 className="page-header">My account</h1>
+                        <h2 className="page-header">MY SDC ACCOUNT</h2>
                         <div className="row">
-                            <div className="col-sm-4">
-                                <div className="well text-center">
-                                    <div className="stat-value">
-                                        {this.state.hour}
-                                    </div>
-                                    <div className="stat-label">hour</div>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="well text-center">
-                                    <div className="stat-value">
-                                        {this.state.minute}
-                                    </div>
-                                    <div className="stat-label">minute</div>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="well text-center">
-                                    <div className="stat-value">
-                                        {this.state.second}
-                                    </div>
-                                    <div className="stat-label">second</div>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="well text-center">
-                                    <div className="stat-value">
-                                        {this.state.year}
-                                    </div>
-                                    <div className="stat-label">year</div>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="well text-center">
-                                    <div className="stat-value">
-                                        {this.state.month}
-                                    </div>
-                                    <div className="stat-label">month</div>
-                                </div>
-                            </div>
-                            <div className="col-sm-4">
-                                <div className="well text-center">
-                                    <div className="stat-value">
-                                        {this.state.day}
-                                    </div>
-                                    <div className="stat-label">day</div>
-                                </div>
+
+                        </div>
+                        <div className="row">
+                            <div className="table-responsive">
+                                <table className="table table-striped table-results">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th className="stretch">Instance Name</th>
+                                        <th>Status</th>
+                                        <th>ID</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <button
+                                                    className="btn btn-default btn-sm"
+                                                    onClick={this.onEditClick.bind(this)}>
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <Link to="/instances">
+                                                Test Instance
+                                                </Link>
+                                            </td>
+                                            <td>Running</td>
+                                            <td>12345</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <button
+                                                    className="btn btn-default btn-sm"
+                                                    onClick={this.onEditClick.bind(this)}>
+                                                    Edit
+                                                </button>
+                                            </td>
+                                            <td>Test Instance 2</td>
+                                            <td>Stopped</td>
+                                            <td>536454</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-5">
-                        <h1 className="page-header">Throttle guage</h1>
-                        <div className="text-center">
-                            <i className="fa fa-dashboard bamf"></i>
+                        <div className="row">
+                            <div className="col-sm-6">
+
+                            </div>
+                            <div className="col-sm-6">
+                                <br/>&nbsp;
+                                <img src="/public/media/dashboard-display2.svg"
+                                />
+                                <br/>&nbsp;
+                                <img src="/public/media/dashboard-display1.svg"
+                                />
+                                <br/>&nbsp;
+                                <img src="/public/media/dashboard-display3.svg"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

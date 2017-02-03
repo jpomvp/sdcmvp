@@ -10,30 +10,29 @@ class HomePage extends React.Component {
 
         return (
             <Layout
-                title="Intelligent Transportation Systems - Joint Program Office"
+                title="Intelligent Transportation Systems Joint Program Office - Secure Data Commons"
                 neck={neck}
                 activeTab="home">
                 <div className="row">
                     <div className="col-sm-6">
                         <a href="/about">
-                            <img
-                                src="/public/media/left-block.png"
+                            <img src="/public/media/left-block.svg"
+                                 width={587}
+                                height={571}
                             />
                         </a>
                     </div>
                     <div className="col-sm-6">
                         <a href="/about">
-                            <img
-                                src="/public/media/right-block1.svg"
+                            <img src="/public/media/right-block1.svg"
                                 width={571}
                                 height={286}
                             />
                         </a>
                         <a href="/about">
-                            <img
-                                src="/public/media/right-block2.svg"
+                            <img src="/public/media/right-block2.svg"
                                 width={571}
-                                height={285}
+                                height={286}
                             />
                         </a>
                     </div>
@@ -55,9 +54,12 @@ class HomePage extends React.Component {
                     <div className="col-sm-4">
                         <div className="panel panel-default">
                             <div className="panel-body">
-                                <h3>About the SDC</h3>
+                                <h3>About SDC</h3>
                                 <p>
-                                    Learn more about what makes the ITS JPO Secure Data Commons work and how you can put the same technology to use for your own data analysis.
+                                    The Secure Data Commons is a online portal where you can perform
+                                    data analysis on transportation-related data sets.
+                                    <br />
+                                    &nbsp;
                                 </p>
                                 <a href="/about" className="btn btn-default btn-block">
                                     Learn more
@@ -70,9 +72,9 @@ class HomePage extends React.Component {
                             <div className="panel-body">
                                 <h3>Sign up</h3>
                                 <p>
-                                    Want access to totally awesome data? Sign up for your very own SDC data analysis account today!
-                                    <br />
-                                    &nbsp;
+                                    What to get started? Complete our online access request form and
+                                    when you are approved you can begin creating your very own data analysis
+                                    environments!
                                 </p>
                                 <a href="/signup" className="btn btn-default btn-block">
                                     Learn more
@@ -85,9 +87,8 @@ class HomePage extends React.Component {
                             <div className="panel-body">
                                 <h3>Contact us</h3>
                                 <p>
-                                    Got questions? Suggestions? Great! We would love to hear from you.
-                                    <br />
-                                    &nbsp;
+                                    Questions? Comments? We would love to hear from you! We are always striving to
+                                    improve our system so don't hesitate to let us know what you think!
                                 </p>
                                 <a href="/contact" className="btn btn-default btn-block">
                                     Learn more

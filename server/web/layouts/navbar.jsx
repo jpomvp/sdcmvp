@@ -24,7 +24,7 @@ class Navbar extends React.Component {
                         <a className="navbar-brand" href="/">
                             <img
                                 className="navbar-logo"
-                                src="/public/media/header-logo.svg"
+                                src="/public/media/logo.svg"
                             />
                             <span className="navbar-brand-label">SDC</span>
                         </a>

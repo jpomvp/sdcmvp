@@ -85,6 +85,12 @@ const manifest = {
             plugin: './server/mailer'
         },
         {
+            plugin: './server/api/containermanager',
+            options: {
+                routes: { prefix: '/api' }
+            }
+        },
+        {
             plugin: './server/api/accounts',
             options: {
                 routes: { prefix: '/api' }

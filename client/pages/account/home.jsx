@@ -8,7 +8,6 @@ class HomePage extends React.Component {
     constructor(props) {
 
         super(props);
-
     }
 
     onEditClick() {
@@ -17,7 +16,41 @@ class HomePage extends React.Component {
 
     }
 
+    getEnviroments() {
+        const testData = [
+            {instanceName: 'Test Instance #1', instanceStatus: 'Running', id: '34242342'},
+            {instanceName: 'Test Instance #2', instanceStatus: 'Running', id: '53635665'},
+            {instanceName: 'Yet Another Test Instance', instanceStatus: 'Stopped', id: '76763424'},
+            {instanceName: 'Name Goes Here', instanceStatus: 'Stopped', id: '67782423'},
+            {instanceName: 'Testing 1234', instanceStatus: 'Stopped', id: '53635437'}];
+        return testData;
+    }
+
     render() {
+
+        // render the table of environments
+        var data = [] = this.getEnviroments();
+        var environments = [];
+        for (var i = 0; i < data.length; i++) {
+            environments.push(
+                <tr key={i}>
+                    <td>
+                        <button
+                            className="btn btn-default btn-sm"
+                            onClick={this.onEditClick.bind(this)}>
+                            Edit
+                        </button>
+                    </td>
+                    <td>
+                        <Link to="/instances">
+                            {data[i].instanceName}
+                        </Link>
+                    </td>
+                    <td>{data[i].instanceStatus}</td>
+                    <td>{data[i].id}</td>
+                </tr>
+            );
+        }
 
         return (
 
@@ -40,36 +73,7 @@ class HomePage extends React.Component {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <button
-                                                    className="btn btn-default btn-sm"
-                                                    onClick={this.onEditClick.bind(this)}>
-                                                    Edit
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <Link to="/instances">
-                                                Test Instance
-                                                </Link>
-                                            </td>
-                                            <td>Running</td>
-                                            <td>12345</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <button
-                                                    className="btn btn-default btn-sm"
-                                                    onClick={this.onEditClick.bind(this)}>
-                                                    Edit
-                                                </button>
-                                            </td>
-                                            <td>Test Instance 2</td>
-                                            <td>Stopped</td>
-                                            <td>536454</td>
-                                        </tr>
-                                        <tr></tr>
-                                        <tr></tr>
+                                        {environments}
                                     </tbody>
                                 </table>
                             </div>

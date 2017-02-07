@@ -46,7 +46,8 @@ class Form extends React.Component {
             name: this.input.name.value(),
             username: this.input.username.value(),
             password: this.input.password.value(),
-            email: this.input.email.value()
+            email: this.input.email.value(),
+            // reason: this.input.reason.value()
         });
     }
 
@@ -74,7 +75,7 @@ class Form extends React.Component {
                 <TextControl
                     ref={(c) => (this.input.name = c)}
                     name="name"
-                    label="Name"
+                    label="Full Name"
                     hasError={this.state.hasError.name}
                     help={this.state.help.name}
                     disabled={this.state.loading}
@@ -102,6 +103,14 @@ class Form extends React.Component {
                     type="password"
                     hasError={this.state.hasError.password}
                     help={this.state.help.password}
+                    disabled={this.state.loading}
+                />
+                <TextControl
+                    ref={(c) => (this.input.reason = c)}
+                    name="reason"
+                    label="Reason for Requesting Access"
+                    hasError={this.state.hasError.reason}
+                    help={this.state.help.reason}
                     disabled={this.state.loading}
                 />
                 <ControlGroup hideLabel={true} hideHelp={true}>

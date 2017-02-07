@@ -18,7 +18,7 @@ class HomePage extends React.Component {
                         <a href="/about">
                             <img src="/public/media/left-block.svg"
                                  width={587}
-                                height={571}
+                                 height={571}
                             />
                         </a>
                     </div>
@@ -88,7 +88,7 @@ class HomePage extends React.Component {
                                 <h3>Contact us</h3>
                                 <p>
                                     Questions? Comments? We would love to hear from you! We are always striving to
-                                    improve our system so don't hesitate to let us know what you think!
+                                    make improvements to our system so don't hesitate to let us know what you think!
                                 </p>
                                 <a href="/contact" className="btn btn-default btn-block">
                                     Learn more

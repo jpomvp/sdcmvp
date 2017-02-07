@@ -1,14 +1,14 @@
 'use strict';
+// const Actions = require('./actions');
 const React = require('react');
-const ReactRouter = require('react-router');
+// const ReactRouter = require('react-router');
 
-const Link = ReactRouter.Link;
 class HomePage extends React.Component {
 
-    constructor(props) {
+    /*constructor(props) {
 
         super(props);
-    }
+    }*/
 
     onEditClick() {
 
@@ -18,18 +18,25 @@ class HomePage extends React.Component {
 
     getEnviroments() {
         const testData = [
-            {instanceName: 'Test Instance #1', instanceStatus: 'Running', id: '34242342'},
-            {instanceName: 'Test Instance #2', instanceStatus: 'Running', id: '53635665'},
-            {instanceName: 'Yet Another Test Instance', instanceStatus: 'Stopped', id: '76763424'},
-            {instanceName: 'Name Goes Here', instanceStatus: 'Stopped', id: '67782423'},
-            {instanceName: 'Testing 1234', instanceStatus: 'Stopped', id: '53635437'}];
+            {
+                instanceName: 'Tensorflow Playground Test',
+                instanceStatus: 'Running',
+                id: '34242342',
+                URL: 'http://da01.sdc.jpo.dot.gov:8080/?token=7e9aa7a67ee99f8b8882cc10d697238b22305a48d28f7e26'
+            },
+            {instanceName: 'Test Instance #2', instanceStatus: 'Stopped', id: '53635665', URL: ''},
+            {instanceName: 'Yet Another Test Instance', instanceStatus: 'Stopped', id: '76763424', URL: ''},
+            {instanceName: 'Name Goes Here', instanceStatus: 'Stopped', id: '67782423', URL: ''},
+            {instanceName: 'Testing 1234', instanceStatus: 'Stopped', id: '53635437', URL: ''}];
+
         return testData;
+        // return Actions.getContainerList();
     }
 
     render() {
 
         // render the table of environments
-        var data = [] = this.getEnviroments();
+/*        var data = [] = this.getEnviroments();
         var environments = [];
         for (var i = 0; i < data.length; i++) {
             environments.push(
@@ -42,15 +49,17 @@ class HomePage extends React.Component {
                         </button>
                     </td>
                     <td>
-                        <Link to="/instances">
+                        {/!*<Link to={data[i].URL}>*!/}
+                        <a href={data[i].URL} target="_new">
                             {data[i].instanceName}
-                        </Link>
+                        </a>
+                        {/!*</Link>*!/}
                     </td>
                     <td>{data[i].instanceStatus}</td>
                     <td>{data[i].id}</td>
                 </tr>
             );
-        }
+        }*/
 
         return (
 
@@ -73,7 +82,7 @@ class HomePage extends React.Component {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        {environments}
+                                        {/*{environments}*/}
                                     </tbody>
                                 </table>
                             </div>

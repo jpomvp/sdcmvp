@@ -18,6 +18,7 @@ const Routes = (
         <Route path="/account" component={App}>
             <IndexRoute component={Home} />
             <Route path="/account/settings" component={Settings} />
+            <Route path="/account/deploy" component={Settings} />
             <Route path="*" component={NotFound} />
         </Route>
         <Route path="*" component={NotFound} />

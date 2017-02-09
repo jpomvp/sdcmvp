@@ -9,6 +9,7 @@ class Actions {
     static getContainerList() {
         ApiActions.get(
             '/api/getcontainers',
+            undefined,
             Store,
             Constants.REGISTER,
             Constants.REGISTER_RESPONSE,

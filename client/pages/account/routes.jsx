@@ -5,6 +5,7 @@ const NotFound = require('./not-found.jsx');
 const React = require('react');
 const ReactRouter = require('react-router');
 const Settings = require('./settings/index.jsx');
+const Environments = require('./environments/index.jsx');
 
 
 const IndexRoute = ReactRouter.IndexRoute;
@@ -18,7 +19,7 @@ const Routes = (
         <Route path="/account" component={App}>
             <IndexRoute component={Home} />
             <Route path="/account/settings" component={Settings} />
-            <Route path="/account/deploy" component={Settings} />
+            <Route path="/account/environments" component={Environments} />
             <Route path="*" component={NotFound} />
         </Route>
         <Route path="*" component={NotFound} />

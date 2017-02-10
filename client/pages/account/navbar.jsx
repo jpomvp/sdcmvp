@@ -64,13 +64,13 @@ class Navbar extends React.Component {
                     <div className={navBarCollapse}>
                         <ul className="nav navbar-nav">
                             <li className={this.isPathActive('/account')}>
-                                <Link to="/account">My account</Link>
+                                <Link to="/account">Dashboard</Link>
                             </li>
-                            <li className={this.isPathActive('/account/deploy')}>
-                                <Link to="/account/deploy">Deploy New Environment</Link>
+                            <li className={this.isPathActive('/account/environments')}>
+                                <Link to="/account/environments">Deploy New Environment</Link>
                             </li>
                             <li className={this.isPathActive('/account/settings')}>
-                                <Link to="/account/settings">Settings</Link>
+                                <Link to="/account/settings">Account Settings</Link>
                             </li>
                         </ul>
                         <ul className="nav navbar-nav navbar-right">

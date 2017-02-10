@@ -11,11 +11,6 @@ class HomePage extends React.Component {
 
     }
 
-    onNewClick() {
-
-        /* TODO: Open new environment dialog */
-    }
-
     getEnviroments() {
         let listOfContainers = Actions.getContainerList();
         if (typeof listOfContainers == 'undefined') {
@@ -77,15 +72,8 @@ class HomePage extends React.Component {
 
             <section className="section-home container">
                 <div className="row">
-                    <div className="col-sm-7">
-                        <h2 className="page-header">MY SDC ACCOUNT</h2>
-                        <div className="row">
-                            <button
-                                className="btn btn-default btn-sm"
-                                onClick={this.onNewClick.bind(this)}>
-                                Deploy New Environment
-                            </button>
-                        </div>
+                    <div className="col-sm-8">
+                        <h2 className="page-header">Account Dashboard</h2>
                         <div className="row">
                             <div className="table-responsive">
                                 <table className="table table-striped table-results">
@@ -104,12 +92,9 @@ class HomePage extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-5">
+                    <div className="col-sm-4">
                         <div className="row">
-                            <div className="col-sm-6">
-
-                            </div>
-                            <div className="col-sm-6">
+                            <div className="col-sm-12">
                                 <br/>&nbsp;
                                 <img src="/public/media/dashboard-display2.svg"
                                 />

@@ -37,7 +37,7 @@ class SettingsPage extends React.Component {
 
         return (
             <section className="container">
-                <h1 className="page-header">Account settings</h1>
+                <h1 className="page-header">Account Settings</h1>
                 <div className="row">
                     <div className="col-sm-6">
                         <DetailsForm {...this.state.details} />

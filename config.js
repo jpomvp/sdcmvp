@@ -24,7 +24,7 @@ const config = {
         $filter: 'env',
         $meta: 'values should not end in "/"',
         production: 'https://jpo-sdc.dot.gov',
-        $default: 'http://127.0.0.1:8000'
+        $default: 'http://localhost:80'
     },
     authAttempts: {
         forIp: 50,

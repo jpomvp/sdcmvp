@@ -18,7 +18,7 @@ class Environments extends React.Component {
     }
 
     createEnvironmentClick(environmentName) {
-        console.log(environmentName);
+        Actions.startEnvrionment(environmentName);
     }
 
     render() {
@@ -38,7 +38,7 @@ class Environments extends React.Component {
                         <div className="col-sm-6">
                             <button
                                 className="btn-primary btn btn-default btn-block"
-                                onClick={this.createEnvironmentClick.bind(this, 'CH2_002')}>
+                                onClick={this.createEnvironmentClick.bind(this, 'ch2_002')}>
                                 Create Analysis Environment Using This Data Set
                             </button>
                         </div>

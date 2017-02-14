@@ -11,7 +11,7 @@ const internals = {};
 internals.applyRoutes = function (server, next) {
 
     server.route({
-        method: 'POST',
+        method: 'PUT',
         path: '/startcontainer/{imageName}',
         config: {
             auth: {
@@ -20,7 +20,7 @@ internals.applyRoutes = function (server, next) {
         },
         handler: function (request, reply) {
             ContainerManager.createContainer(request.params.imageName, request.auth.credentials.user._id, function(err, result) {
-                if (err) reply({"message" : "Unable to create container"});
+                if (err) reply({"message" : "Unable to create container" + err});
                 else reply({"message" : "Container is running"});
             });
         }

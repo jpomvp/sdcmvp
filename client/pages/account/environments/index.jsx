@@ -1,7 +1,6 @@
 'use strict';
 const Actions = require('./actions');
 const React = require('react');
-// const Store = require('./store');
 const Environments = require('./environments.jsx');
 
 
@@ -10,25 +9,6 @@ class EnvironmentsPage extends React.Component {
 
         super(props);
 
-        // Actions.getDetails();
-        // Actions.getUser();
-
-        // this.state = Store.getState();
-    }
-
-    componentDidMount() {
-
-        // this.unsubscribeStore = Store.subscribe(this.onStoreChange.bind(this));
-    }
-
-    componentWillUnmount() {
-
-        // this.unsubscribeStore();
-    }
-
-    onStoreChange() {
-
-        // this.setState(Store.getState());
     }
 
     render() {

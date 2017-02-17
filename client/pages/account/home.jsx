@@ -2,30 +2,50 @@
 const Actions = require('./actions');
 const React = require('react');
 const ReactRouter = require('react-router');
+const Store = require('./store');
 
 class HomePage extends React.Component {
 
-    onEditClick() {
+    constructor(props) {
 
-        /* TODO: Open edit instance dialog */
+        super(props);
 
+        Actions.getContainerList();
+
+        this.state = Store.getState();
     }
 
-    getEnviroments() {
-        let listOfContainers = Actions.getContainerList();
-        if (typeof listOfContainers == 'undefined') {
-            let noEnvMsg = [];
-            noEnvMsg.push({instanceName: 'No Deployed Environments', URL: '#',id: '0'});
-            return noEnvMsg;
-        } else {
-            return listOfContainers;
-        }
+    componentDidMount() {
+
+        this.unsubscribeStore = Store.subscribe(this.onStoreChange.bind(this));
+    }
+
+    componentWillUnmount() {
+
+        this.unsubscribeStore();
+    }
+
+    onStoreChange() {
+
+        this.setState(Store.getState());
+    }
+
+    onDeleteClick(id) {
+
+        Actions.deleteContainer(id);
+        Actions.getContainerList();
+
     }
 
     render() {
 
-        // render the table of environments
-        let data = [] = this.getEnviroments();
+        let data = [];
+        if (typeof this.state.containers == 'undefined' || this.state.containers.length == 0)  {
+            data.push({image: 'No Deployed Environments', URL: '#',_id: '0'});
+        } else {
+            data = this.state.containers;
+        }
+
         let numEnvironments = 0;
         if (typeof data.length == 'undefined') {
             numEnvironments = 1;
@@ -35,23 +55,23 @@ class HomePage extends React.Component {
         let environments = [];
         for (let i = 0; i < numEnvironments; i++) {
 
-            if(data[i].id != 0) {
+            if(data[i]._id != 0) {
                 environments.push(
                     <tr key={i}>
                         <td>
                             <button
                                 className="btn btn-default btn-sm"
-                                onClick={this.onEditClick.bind(this)}>
-                                Edit
+                                onClick={() => {if(confirm('Are you sure you want to delete this environment?')) { this.onDeleteClick(data[i].container)}}}>
+                                Delete
                             </button>
                         </td>
                         <td>
                             <a href={data[i].URL} target="_new">
-                                {data[i].instanceName}
+                                {data[i].image}
                             </a>
                         </td>
                         <td>{data[i].instanceStatus}</td>
-                        <td>{data[i].id}</td>
+                        <td>{data[i]._id}</td>
                     </tr>
                 );
             } else {
@@ -59,7 +79,7 @@ class HomePage extends React.Component {
                     <tr key={i}>
                         <td></td>
                         <td>
-                                {data[i].instanceName}
+                                {data[i].image}
                         </td>
                         <td></td>
                         <td></td>
@@ -112,6 +132,5 @@ class HomePage extends React.Component {
         );
     }
 }
-
 
 module.exports = HomePage;

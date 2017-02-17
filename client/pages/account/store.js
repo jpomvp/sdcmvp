@@ -14,13 +14,13 @@ const initialState = {
 };
 const reducer = function (state = initialState, action) {
 
-    if (action.type === Constants.REGISTER) {
+    if (action.type === Constants.GETCONTAINERS) {
         return ObjectAssign({}, state, {
             loading: true
         });
     }
 
-    if (action.type === Constants.REGISTER_RESPONSE) {
+    if (action.type === Constants.GETCONTAINERS_RESPONSE) {
         const validation = ParseValidation(action.response);
 
         return ObjectAssign({}, state, {
@@ -28,12 +28,30 @@ const reducer = function (state = initialState, action) {
             success: !action.err,
             error: validation.error,
             hasError: validation.hasError,
-            help: validation.help
+            help: validation.help,
+            containers: action.response
+        });
+    }
+
+    if (action.type === Constants.DELETECONTAINER) {
+        return ObjectAssign({}, state, {
+            loading: true
+        });
+    }
+
+    if (action.type === Constants.DELETECONTAINER_RESPONSE) {
+        const validation = ParseValidation(action.response);
+
+        return ObjectAssign({}, state, {
+            loading: false,
+            success: !action.err,
+            error: validation.error,
+            hasError: validation.hasError,
+            help: validation.help,
         });
     }
 
     return state;
 };
-
 
 module.exports = Redux.createStore(reducer);

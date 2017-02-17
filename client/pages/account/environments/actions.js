@@ -12,7 +12,13 @@ class Actions {
             undefined,
             Store,
             Constants.ENVIRONMENT,
-            Constants.ENVIRONMENT_RESPONSE
+            Constants.ENVIRONMENT_RESPONSE,
+            (err, response) => {
+
+                if (!err) {
+                    window.location.href = '/account';
+                }
+            }
         );
     }
 

@@ -11,18 +11,30 @@ class Actions {
             '/api/getcontainers',
             undefined,
             Store,
-            Constants.REGISTER,
-            Constants.REGISTER_RESPONSE,
+            Constants.GETCONTAINERS,
+            Constants.GETCONTAINERS_RESPONSE,
+            (err, response) => {
+
+            }
+        );
+    }
+
+    static deleteContainer(containerID) {
+        ApiActions.delete(
+            '/api/removecontainer/' + containerID,
+            undefined,
+            Store,
+            Constants.DELETECONTAINER,
+            Constants.DELETECONTAINER_RESPONSE,
             (err, response) => {
 
                 if (!err) {
-                    // window.location.href = '/account';
-                    // console.log(response);
+                    window.location.href = '/account';
                 }
             }
         );
     }
-};
 
+};
 
 module.exports = Actions;

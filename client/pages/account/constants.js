@@ -3,6 +3,8 @@ const FluxConstant = require('flux-constant');
 
 
 module.exports = FluxConstant.set([
-    'REGISTER',
-    'REGISTER_RESPONSE'
+    'GETCONTAINERS',
+    'GETCONTAINERS_RESPONSE',
+    'DELETECONTAINER',
+    'DELETECONTAINER_RESPONSE'
 ]);

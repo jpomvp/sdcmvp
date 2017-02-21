@@ -1,0 +1,27 @@
+FROM node:7.4.0
+
+# setup applicaiton directory structure
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# setup app dependencies
+COPY package.json /usr/src/app/
+RUN npm install
+
+# setup app directory structure
+COPY . /usr/src/app
+
+# Setup volumes for DEV/TEST
+VOLUME /usr/src/app
+
+# setup environment variables
+ENV MONGODB_URI "mongodb://172.17.0.2:27017/aqua"
+ENV NODE_ENV "test"
+ENV DOCKER_HOST "http://152.122.106.147:2376"
+
+# Port may need to be re-mapped when SSL is enabled back to 443 or mapped via AWS routing service.
+EXPOSE 8000
+EXPOSE 9229
+
+# run npm start to get things going (and run gulp to process files)
+CMD [ "sh", "-c", "npm install && npm start" ]

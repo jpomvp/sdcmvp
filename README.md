@@ -1,6 +1,6 @@
-# Aqua
+# DOT Intelligent Transportation Systems - Joint Program Office - Secure Data Commons MVP
 
-A website and user system starter.
+A Docker container management system for data analytics. 
 
 [![Build Status](https://travis-ci.org/jedireza/aqua.svg?branch=master)](https://travis-ci.org/jedireza/aqua)
 [![Dependency Status](https://david-dm.org/jedireza/aqua.svg?style=flat)](https://david-dm.org/jedireza/aqua)

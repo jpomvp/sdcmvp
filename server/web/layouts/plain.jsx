@@ -19,6 +19,7 @@ class PlainLayout extends React.Component {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <link rel="stylesheet" href="/public/core.min.css" />
                     <link rel="shortcut icon" href="/public/media/favicon.ico" />
+                    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet" />
                     {this.props.neck}
                 </head>
                 <body>

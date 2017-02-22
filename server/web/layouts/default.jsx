@@ -25,6 +25,7 @@ class DefaultLayout extends React.Component {
                     <link rel="stylesheet" href="/public/core.min.css" />
                     <link rel="stylesheet" href="/public/layouts/default.min.css" />
                     <link rel="shortcut icon" href="/public/media/favicon.ico" />
+                    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet" />
                     {this.props.neck}
                 </head>
                 <body>

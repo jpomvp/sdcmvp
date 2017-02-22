@@ -66,7 +66,7 @@ class HomePage extends React.Component {
                             </button>
                         </td>
                         <td>
-                            <a href={data[i].URL} target="_new">
+                            <a href={data[i].URL.href} target="_new">
                                 {data[i].image}
                             </a>
                         </td>

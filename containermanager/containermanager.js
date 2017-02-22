@@ -1,17 +1,32 @@
+const URL = require('url').URL;
 var docker = require('docker-remote-api');
 var fs = require('fs-extra');
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 
-const collectionName = "containers"
+const collectionName = "containers";
 
-var request = docker({ host: process.env.DOCKER_HOST || 'http://192.168.99.100:2376' });
-var url = process.env.MONGODB_URI || "mongodb://192.168.99.100:32768/aqua";
+const request = docker({ host: process.env.DOCKER_HOST || 'http://192.168.99.100:2376' });
+const url = process.env.MONGODB_URI || "mongodb://192.168.99.100:32768/aqua";
+
+var dockerURL = new URL(process.env.DOCKER_ENV_HOST || 'http://localhost:8080/');
 
 module.exports = {
     createContainer: function (imageName, userId, callback) {
 
-        var body = { "Image": imageName }
+        const port = getNextPort();
+
+        dockerURL.port = port;
+
+        var body = {
+            "Image": imageName,
+            "ExposedPorts": {
+                "8888/tcp": {}
+            },
+            "HostConfig": {
+                "PortBindings": { "8888/tcp": [{ "HostPort": port }] }
+            }
+        };
         // Create the container
         request.post('/v1.25/containers/create', { 'json': body }, function (err, data) {
             if (err) {
@@ -26,10 +41,10 @@ module.exports = {
             // Save the container and associated user to the db
             MongoClient.connect(url, function (err, db) {
                 assert.equal(null, err);
-                var document = { "user": userId, "container": data.Id, "image" : imageName };
+                var document = { "user": userId, "container": data.Id, "image" : imageName, "URL": dockerURL };
                 insertContainer(db, document, function (err, results) {
                     if (err) throw err;
-                    console.log("result", results);
+                    // console.log("result", results);
                     db.close();
                 });
             });
@@ -95,4 +110,10 @@ var fetchContainers = function(db, query, callback) {
 var removeContainer = function(db, containerId, callback) {
     var collection = db.collection(collectionName);
     collection.deleteOne({'container' : containerId}, callback);
+}
+
+// get the next free port
+var getNextPort = function() {
+
+    return "8002";
 }

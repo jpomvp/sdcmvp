@@ -64,6 +64,11 @@ const config = {
             name: 'Aqua',
             address: 'sdc-mvp@dot.gov'
         }
+    },
+    docker: {
+      host: process.env.DOCKER_HOST,
+        defaultContainerExposedPort: "8888/tcp",
+        defaultContainerStartingPort: "8000"
     }
 };
 

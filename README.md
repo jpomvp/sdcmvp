@@ -1,6 +1,6 @@
 # DOT Intelligent Transportation Systems - Joint Program Office - Secure Data Commons MVP
 
-A Docker container management system for data analytics. 
+A Docker container management system for data analytics based on the [Aqua](https://github.com/jedireza/aqua) web starter.
 
 [![Build Status](https://travis-ci.org/jedireza/aqua.svg?branch=master)](https://travis-ci.org/jedireza/aqua)
 [![Dependency Status](https://david-dm.org/jedireza/aqua.svg?style=flat)](https://david-dm.org/jedireza/aqua)
@@ -14,16 +14,16 @@ A Docker container management system for data analytics.
  - Account sign-up page
  - Login system with forgot password and reset password
  - Abusive login attempt detection
- - User roles for accounts and admins
+ - User roles/groups for accounts and admins
  - Admins only notes and status history for accounts
- - Admin groups with shared permissions
+ - Admin groups with shared permissions between user accounts
  - Admin level permissions that override group permissions
 
 
 ## Technology
 
-Server side, Aqua is built with the [hapi](https://hapijs.com/) framework.
-We're using [MongoDB](http://www.mongodb.org/) as a data store.
+Server side, the SDC MVP is built with Node.js and the [hapi](https://hapijs.com/) framework.
+We're using [MongoDB](http://www.mongodb.org/) as a data store (same as Aqua).
 
 The front-end is built with [React](https://github.com/facebook/react). We use
 [Redux](https://github.com/reactjs/redux) as our state container. Client side
@@ -31,18 +31,16 @@ routing is done with [React Router](https://github.com/reactjs/react-router).
 We're using [Gulp](http://gulpjs.com/) for the build system.
 
 
-## API only
+## API
 
-If you don't use React and/or would rather bring your own front-end, checkout
-[Frame](https://github.com/jedireza/frame). It's just the HTTP API parts of Aqua.
+NOTE: If you don't use React and/or would rather bring your own front-end, checkout
+[Frame](https://github.com/jedireza/frame). It's just the HTTP API parts of the Aqua web starter.
 
+Additionally, we have added the following new API commands to support the handling of Docker containers:
 
-## Live demo
-
-| url                                                              | username | password |
-|:---------------------------------------------------------------- |:-------- |:-------- |
-| [https://getaqua.herokuapp.com/](https://getaqua.herokuapp.com/) | root     | root     |
-
+- startcontainer
+- getcontainers
+- removecontainer
 
 ## Requirements
 
@@ -58,8 +56,8 @@ page](https://github.com/jedireza/aqua/wiki/bcrypt-Installation-Trouble).
 ## Installation
 
 ```bash
-$ git clone git@github.com:jedireza/aqua.git
-$ cd aqua
+$ git clone git@github.com:DOTvolpe/sdc-mvp.git
+$ cd sdc-mvp
 $ npm install
 ```
 
@@ -83,16 +81,16 @@ to your repository.__
 
 __WARNING__: This will clear all data in the following MongoDB collections if
 they exist: `accounts`, `adminGroups`, `admins`, `authAttempts`, `sessions`,
-`statuses`, and `users`.
+`statuses`, `containers` and `users`.
 
 ```bash
 $ npm run first-time-setup
 
-# > aqua@0.0.0 first-time-setup /home/jedireza/projects/aqua
+# > sdc@0.0.0 first-time-setup /home/sdc/projects/sdc-mvp
 # > node first-time-setup.js
 
 # MongoDB URL: (mongodb://localhost:27017/aqua)
-# Root user email: jedireza@gmail.com
+# Root user email: sdc@dot.gov
 # Root user password:
 # Setup complete.
 ```
@@ -103,10 +101,10 @@ $ npm run first-time-setup
 ```bash
 $ npm start
 
-# > aqua@0.0.0 start /Users/jedireza/projects/aqua
+# > sdc@0.0.0 start /Users/sdc/projects/sdc-mvp
 # > gulp react && gulp
 
-# [23:41:44] Using gulpfile ~/projects/aqua/gulpfile.js
+# [23:41:44] Using gulpfile ~/projects/sdc-mvp/gulpfile.js
 # ...
 ```
 
@@ -138,6 +136,7 @@ these environment variables in your production environment:
    both server-side and with the front-end build files.
  - `NPM_CONFIG_PRODUCTION=false` - This tells `$ npm install` to not skip
    installing `devDependencies`, which we need to build the front-end files.
+ - `DOCKER_HOST`, target Docker host API for container operations. 
 
 
 ## Have a question?
@@ -160,7 +159,7 @@ use to write all of our tests.
 ```bash
 $ npm test
 
-# > aqua@0.0.0 test /Users/jedireza/projects/aqua
+# > sdc@0.0.0 test /Users/sdc/projects/sdc-mvp
 # > lab -t 100 -S -T ./test/lab/transform -L --lint-options '{"extensions":[".js",".jsx"]}' ./test/lab/client-before.js ./test/client/ ./test/lab/client-after.js ./test/server/ ./test/lab/server-after.js ./test/misc/
 
 #  ..................................................
@@ -195,6 +194,3 @@ $ npm test
 MIT
 
 
-## Don't forget
-
-What you build with Aqua is more important than Aqua.

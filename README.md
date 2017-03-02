@@ -9,6 +9,7 @@ A Docker container management system for data analytics based on the [Aqua](http
 
 ## Features
 
+ - Ability to deploy and manage Docker containers assigned to individual users or groups
  - Basic front end web pages (home, about)
  - Contact page with form that emails submissions
  - Account sign-up page

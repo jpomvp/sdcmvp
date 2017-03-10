@@ -57,8 +57,8 @@ page](https://github.com/jedireza/aqua/wiki/bcrypt-Installation-Trouble).
 ## Installation
 
 ```bash
-$ git clone git@github.com:DOTvolpe/sdc-mvp.git
-$ cd sdc-mvp
+$ git clone git@github.com:jpomvp/sdcmvp.git
+$ cd sdcmvp
 $ npm install
 ```
 
